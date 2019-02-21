@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Quote from './quote/Quote';
+import Button from './button/Button';
+import QuoteBuilder from './logic/QuoteBuilder';
 
 class App extends Component {
+  state = {
+    quoteText: null,
+  }
+
+  changeQuote = () => {
+    this.setState({ quoteText: QuoteBuilder.getQuote() })
+  }
+
   render() {
+    const { quoteText } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app">
+        <Quote text={quoteText}/>
+        <Button clickHandle={this.changeQuote} />
       </div>
     );
   }

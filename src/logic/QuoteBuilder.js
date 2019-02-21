@@ -2,8 +2,6 @@ import START_TOKENS from '../data/start';
 import STOP_TOKENS from '../data/stop';
 import SEQUENCE from '../data/sequence';
 
-// Veni vidi amavi
-
 const PUNCTUATION = ['.', '!', '?'];
 
 function getWeightedRandom(obj) {
@@ -39,6 +37,6 @@ export default class QuoteBuilder {
       quote += ' ' + nextState;
       currState = spliceAndJoin(currState, nextState)
     }
-    console.log(capitalize(quote));
+    return capitalize(quote);
   }
 }

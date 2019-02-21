@@ -1,0 +1,69 @@
+.quote-font {
+  
+  &_0 {
+    font-family: 'Sue Ellen Francisco', cursive;
+  }
+  &_1 {
+    font-family: 'Pacifico', cursive;
+  }
+  &_2 {
+    font-family: 'Dancing Script', cursive;
+  }
+  &_3 {
+    font-family: 'Amatic SC', cursive;
+  }
+  &_4 {
+    font-family: 'Permanent Marker', cursive;
+  }
+  &_5 {
+    font-family: 'Satisfy', cursive;
+  }
+  &_6 {
+    font-family: 'Courgette', cursive;
+  }
+  &_7 {
+    font-family: 'Kaushan Script', cursive;
+  }
+  &_8 {
+    font-family: 'Cookie', cursive;
+  }
+  &_9 {
+    font-family: 'Patrick Hand', cursive;
+  }
+  &_10 {
+    font-family: 'Gochi Hand', cursive;
+  }
+  &_11 {
+    font-family: 'Niconne', cursive;
+  }
+  &_12 {
+    font-family: 'Niconne', cursive;
+  }
+}
+
+.quote-container {
+  width: 60%;
+  display: flex;
+  justify-self: center;
+}
+
+.quote {
+  text-align: center;
+  margin: auto;
+}
+
+.app {
+  display: grid;
+  width: 70%;
+  margin: auto;
+  height: 97vh;
+  grid-template-rows: auto 3em;
+}
+
+.button {
+
+}
+
+.button-container {
+  justify-self: center;
+}
