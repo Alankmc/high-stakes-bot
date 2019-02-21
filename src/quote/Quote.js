@@ -23,21 +23,21 @@ export default class Quote extends React.Component {
   getSize(strLen, font = 0) {
     const size = strLen > 180
     ? (1 - (strLen - 180) / 300) * 520
-    : 520;
+    : 490;
     if (font === 1) {
-      return size * 0.8;
+      return size * 0.7;
     }
     return size;
   }
 
   render() {
-    const { text } = this.props;
+    const { text, palette } = this.props;
     const thisHashtag = this.getHastag();
     const thisFont = Math.floor(Math.random() * NUM_FONTS);
     return (<div className="quote-container">
       <span
         style={{fontSize: text ? `${this.getSize(text.length, thisFont)}%`: '4rem'}}
-        className={`quote quote-font_${thisFont}`}
+        className={`quote quote-font_${thisFont} palette_${palette}`}
       >
         {text}
         {text ? this.getHastag() : null}

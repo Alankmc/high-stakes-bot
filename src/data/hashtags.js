@@ -42,6 +42,9 @@ const HASHTAGS = [
   'beachLife',
   'hangloose',
   'deBem',
+  'confiança',
+  'deBemComAVida',
+  'sohNaPaz',
 ];
 
 export default HASHTAGS;
