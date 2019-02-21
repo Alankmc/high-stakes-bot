@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/high-stakes-bot/precache-manifest.3d005af210af88521647425418a2a230.js"
+  "/high-stakes-bot/precache-manifest.4598beb98b0fae4ca11a61a3af27caf9.js"
 );
 
 workbox.clientsClaim();

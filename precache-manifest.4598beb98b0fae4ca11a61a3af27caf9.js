@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "7017a522804566e323e6",
-    "url": "/high-stakes-bot/static/css/main.371e3528.chunk.css"
+    "revision": "81e5e63a430ba4d131e9",
+    "url": "/high-stakes-bot/static/css/main.9e7aeb6c.chunk.css"
   },
   {
-    "revision": "7017a522804566e323e6",
-    "url": "/high-stakes-bot/static/js/main.7017a522.chunk.js"
+    "revision": "81e5e63a430ba4d131e9",
+    "url": "/high-stakes-bot/static/js/main.81e5e63a.chunk.js"
   },
   {
     "revision": "f395368065ac2f2df48a",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/high-stakes-bot/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "bf3061b2b96f732ccdafaccab63590f1",
+    "revision": "8fc98f216b578ff75d206f2a253e560d",
     "url": "/high-stakes-bot/index.html"
   }
 ];
