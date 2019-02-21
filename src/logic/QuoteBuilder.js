@@ -14,22 +14,8 @@ function spliceAndJoin(str, next) {
 }
 
 function capitalize(str) {
-  console.log(str);
-  const pieces = str.split('.');
-  let caps = pieces.reduce((acc, el) => {
-    if (el[0] === ' ') {
-      return `${acc} ${el.charAt(1).toUpperCase() + el.slice(2)}`;
-    } else {
-      return `${acc} ${el.charAt(0).toUpperCase() + el.slice(1)}`;
-    }
-  }, '');
-  if (caps.charAt(caps.length - 1) !== '.' &&
-  caps.charAt(caps.length - 1) !== '?' &&
-  caps.charAt(caps.length - 1) !== '!') {
-    caps += '.';
-  }
-
-  return caps;
+  const pieces = str.split('. ');
+  return pieces.map(el => `${el.charAt(0).toUpperCase()}${el.slice(1)}`).join('. ');
 }
 
 export default class QuoteBuilder {
@@ -44,6 +30,6 @@ export default class QuoteBuilder {
       quote += ' ' + nextState;
       currState = spliceAndJoin(currState, nextState)
     }
-    console.log(quote);
+    console.log(capitalize(quote));
   }
 }
