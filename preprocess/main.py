@@ -1,5 +1,8 @@
 import json;
 
+ORDER_MARKOV = 2
+DATA_FILE = '../src/data/'
+
 def add_to_dict(dict, word):
   if word not in dict.keys():
     dict[word] = 1
@@ -8,9 +11,13 @@ def add_to_dict(dict, word):
   
   return dict
 
+def clean_array(arr):
+  return [t for t in arr if t != '']
+
 def simplify_dict(dict):
   tokens = dict.keys()
-  tokens = [t for t in tokens if t != '']
+  tokens = clean_array(tokens)
+
   tokens.sort()
   probs = []
   for token in tokens:
@@ -27,8 +34,6 @@ def simplify_dict(dict):
     'probs': normalized,
   }
 
-DATA_FILE = '../src/data/'
-
 f = open('quotes.txt', 'r')
 content = f.read().lower()
 content = content.split('\n')
@@ -36,18 +41,26 @@ start_tokens = {}
 end_tokens = {}
 sequence = {}
 for quote in content:
-  words = quote.split(' ')
-  add_to_dict(start_tokens, words[0])
-  add_to_dict(end_tokens, words[-1])
-  for word_index in range(len(words) - 1):
-    this_word = words[word_index]
-    next_word = words[word_index + 1]
-    if this_word not in sequence.keys():
-      sequence[this_word] = {}
-    if next_word not in sequence[this_word].keys():
-      sequence[this_word][next_word] = 1
+  words = clean_array(quote.split(' '))
+  num_words = len(words)
+  
+  this_join = ' '.join(words[0:min(ORDER_MARKOV, num_words)])
+  add_to_dict(start_tokens, this_join)
+  if num_words <= ORDER_MARKOV:
+    add_to_dict(end_tokens, this_join)
+    continue    
+  this_join = ' '.join(words[-ORDER_MARKOV:])
+  add_to_dict(end_tokens, this_join)
+
+  for word_index in range(len(words) - ORDER_MARKOV):
+    this_join = ' '.join(words[word_index:(word_index + ORDER_MARKOV)])
+    next_word = words[word_index + ORDER_MARKOV]
+    if this_join not in sequence.keys():
+      sequence[this_join] = {}
+    if next_word not in sequence[this_join].keys():
+      sequence[this_join][next_word] = 1
     else: 
-      sequence[this_word][next_word] += 1
+      sequence[this_join][next_word] += 1
 
 fstart = open(DATA_FILE + 'start.js', 'w')
 fstart.write('const START_TOKENS = ')
