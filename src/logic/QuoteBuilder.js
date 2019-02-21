@@ -2,6 +2,10 @@ import START_TOKENS from '../data/start';
 import STOP_TOKENS from '../data/stop';
 import SEQUENCE from '../data/sequence';
 
+// Veni vidi amavi
+
+const PUNCTUATION = ['.', '!', '?'];
+
 function getWeightedRandom(obj) {
   const thisRand = Math.random();
   return obj.tokens[obj.probs.findIndex(el => el > thisRand)]
@@ -14,8 +18,13 @@ function spliceAndJoin(str, next) {
 }
 
 function capitalize(str) {
-  const pieces = str.split('. ');
-  return pieces.map(el => `${el.charAt(0).toUpperCase()}${el.slice(1)}`).join('. ');
+  let currStr = str;
+  let pieces;
+  PUNCTUATION.forEach(punc => {
+    pieces = currStr.split(punc + ' ');
+    currStr = pieces.map(el => `${el.charAt(0).toUpperCase()}${el.slice(1)}`).join('. ');
+  })
+  return currStr;
 }
 
 export default class QuoteBuilder {

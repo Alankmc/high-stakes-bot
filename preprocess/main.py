@@ -1,6 +1,6 @@
 import json;
 
-ORDER_MARKOV = 2
+ORDER_MARKOV = 3
 DATA_FILE = '../src/data/'
 
 def add_to_dict(dict, word):
